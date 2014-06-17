@@ -26,8 +26,18 @@ thrift service monitor
 
    1、服务扩展`extends ServerBase`,实现服务基本方法，主要是停止，初始化功能。
    
+   ```
+      public class TestServer extends ServerBase
+   
+   ```
+   
    2、在建立业务服务时，使用fan包装一下业务服务实现类`new Fan(this).wrapper(业务服务实现类)`，this表示步骤1里面服务类
    
+   ```
+        TestService.Iface  iface = (TestService.Iface)(new Fan(this).wrapper(new TestServiceImpl("testService", "1.0")));
+	     TestService.Processor processor = new TestService.Processor(iface);
+	     
+   ```
    3、将包装的业务服务实现类，放入业务服务的Processor处理中即可
    
 ### 服务监控信息获取
