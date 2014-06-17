@@ -13,4 +13,9 @@ fan
    
 ## 使用
 
+### thrift文件
+
+   1、进入'src/main/resources'目录找到fan.thrift（里面描述了提供所有的服务监控信息），将thrift文件拷贝到自己的thrift文件放置目录
+   2、在自己的thrift文件中引入fan.thrift'include "fan.thrift"'
+
 thrift service monitor
